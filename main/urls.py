@@ -14,4 +14,6 @@ urlpatterns = [
     path('gear/create/', views.GearCreate.as_view(), name='gear_create'),
     path('gear/<int:pk>/update/', views.GearUpdate.as_view(), name='gear_update'),
     path('gear/<int:pk>/delete/', views.GearDelete.as_view(), name='gear_delete'),
+    # path('trips/<int:trip_id>/assoc_gear/<int:gear_id>/',
+    #      views.assoc_gear, name='assoc_gear'),
 ]
