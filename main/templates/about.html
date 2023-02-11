@@ -1,6 +1,13 @@
 {% extends 'base.html' %} {% block content %}
 <h1>About Routr</h1>
-<h2>Your Adventure Planner</h2>
+<h3>Your Adventure Planner</h3>
 <hr />
-<p>What's the deal?</p>
+<h4>
+	Routr is here to help you plan upcoming outdoor adventures by giving you a
+	place to organize the details of your trip and make a list of gear to bring.
+</h4>
+<a href="{% url 'trip_create' %}"
+	><button class="btn">Start Planning Your Trip</button></a
+>
+<a href="{% url 'gear_create' %}"><button class="btn">Add your Gear</button></a>
 {% endblock %}
