@@ -30,7 +30,7 @@ class Gear(models.Model):
     brand = models.CharField(max_length=100)
     model = models.CharField(max_length=100)
     necessary = models.CharField(max_length=100)
-    trip = models.ManyToManyField(Trip)
+    # trip = models.ForeignKey(Trip, on_delete=models.CASCADE, related_name='gears', default=None)
 
     def __str__(self):
         return self.name

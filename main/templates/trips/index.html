@@ -1,6 +1,7 @@
 {% extends 'base.html' %} {% block content %}
 
 <h1>Your Trips</h1>
+<a href="{% url 'gear_create' %}"><button class="btn">Add your Gear</button></a>
 
 {% for trip in trips %}
 <div class="card">
