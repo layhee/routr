@@ -6,7 +6,9 @@ body {
     min-height: 100vh;
     flex-direction: column;
   }
-
+h1{
+  letter-spacing: -.1rem;
+}
   main {
     flex: 1 0 auto;
   }

@@ -1,11 +1,7 @@
 from django.db import models
 from django.urls import reverse
-
-# gear_item = (
-#     ('bag', 'for carrying my camp stove', '2 liter', 'Spindle', True),
-#     ('stove', 'for cooking my meals', 'mini', 'Snow Peak', True),
-#     ('tent', 'for sleeping in', '3 person', 'Big Agnes', 'Tiger Wall UL3', True),
-# )
+from datetime import date
+from django.contrib.auth.models import User
 
 
 class Gear(models.Model):
@@ -15,8 +11,6 @@ class Gear(models.Model):
     brand = models.CharField(max_length=100)
     model = models.CharField(max_length=100)
     necessary = models.CharField(max_length=100)
-    # trip = models.ForeignKey(
-    #     Trip, on_delete=models.CASCADE, related_name='gears', default=None)
 
     def __str__(self):
         return self.name
@@ -33,6 +27,7 @@ class Trip(models.Model):
     start = models.CharField(max_length=100)
     end = models.CharField(max_length=250)
     gear = models.ManyToManyField(Gear)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
