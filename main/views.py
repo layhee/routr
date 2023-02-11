@@ -41,13 +41,13 @@ def trip_detail(request, trip_id):
 
 class TripCreate(CreateView):
     model = Trip
-    fields = '__all__'
+    fields = ['name', 'mode', 'distance', 'nights', 'start', 'end']
     success_url = '/trips/'
 
 
 class TripUpdate(UpdateView):
     model = Trip
-    fields = '__all__'
+    fields = ['name', 'mode', 'distance', 'nights', 'start', 'end']
 
 
 class TripDelete(DeleteView):
@@ -63,7 +63,7 @@ class GearCreate(CreateView):
 
 class GearUpdate(UpdateView):
     model = Gear
-    fields = '__all__'
+    fields = ['name', 'use', 'size', 'brand', 'model', 'necessary']
 
 
 class GearDelete(DeleteView):
