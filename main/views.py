@@ -31,11 +31,11 @@ def trip_index(request):
 
 def trip_detail(request, trip_id):
     trip = Trip.objects.get(id=trip_id)
-    # gear_trip_doesnt_have = Trip.objects.exclude(
-    #     id__in=trip.gear.all().values_list('id'))
+    gear_trip_doesnt_have = Gear.objects.exclude(
+        id__in=trip.gear.all().values_list('id'))
     return render(request, 'trips/detail.html', {
         'trip': trip,
-        # 'gear': gear_trip_doesnt_have
+        'gear': gear_trip_doesnt_have
     })
 
 

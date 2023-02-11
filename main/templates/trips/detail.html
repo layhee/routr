@@ -26,11 +26,11 @@
 <div class="row">
 	<div class="col s12 m6">
 		<h3>{{ trip.name }} Gear List</h3>
-		{% if trip.gear.count %} {% for toy in trip.gear.all %}
+		{% if trip.gear.count %} {% for gear in trip.gear.all %}
 		<div class="card">
 			<div class="card-content">
 				<span class="card-title">
-					A {{ gear.size }} {{ gear.name }} {{gear.use}}
+					A {{ gear.size }} {{ gear.name.lower }} {{gear.use}}
 				</span>
 			</div>
 		</div>
@@ -39,15 +39,12 @@
 		{% endif %}
 	</div>
 	<!-- Available gear will come after this line -->
-
 	<div class="col s6">
 		<h3>Available Gear</h3>
-		{% if gear.count %} {% for toy in gear.all %}
+		{% if gear.count %} {% for gear in gear.all %}
 		<div class="card">
 			<div class="card-content">
-				<span class="card-title">
-					A {{ gear.size }} {{ gear.name }} {{gear.use}}
-				</span>
+				<span class="card-title"> A {{ gear.brand }} {{gear.name}} </span>
 			</div>
 			<div class="card-action">
 				<form
