@@ -1,0 +1,18 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1>Your Trips</h1>
+
+{% for trip in trips %}
+<div class="card">
+	<a href="{% url 'detail' trip.id %}">
+		<div class="card-content">
+			<span class="card-title">{{ trip.name }}</span>
+			<p>Mode of travel: {{ trip.mode }}</p>
+			<p>Distance: {{ trip.distance }}</p>
+			<p>Nights: {{ trip.nights }}</p>
+			<p>Start: {{ trip.start }}</p>
+			<p>End: {{ trip.end }}</p>
+		</div>
+	</a>
+</div>
+{% endfor %} {% endblock %}
