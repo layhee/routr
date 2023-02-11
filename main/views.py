@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import ListView, CreateView
 from .models import Trip, Gear
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -37,6 +37,16 @@ def trip_detail(request, trip_id):
         'trip': trip,
         'gear': gear_trip_doesnt_have
     })
+
+
+def assoc_gear(request, trip_id, gear_id):
+    Trip.objects.get(id=trip_id).gear.add(gear_id)
+    return redirect('detail', trip_id=trip_id)
+
+
+def assoc_trip(request, trip_id, gear_id):
+    Trip.objects.get(id=trip_id).gear.remove(gear_id)
+    return redirect('detail', trip_id=trip_id)
 
 
 class TripCreate(CreateView):

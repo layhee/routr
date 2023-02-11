@@ -32,13 +32,24 @@
 				<span class="card-title">
 					A {{ gear.size }} {{ gear.name.lower }} {{gear.use}}
 				</span>
+				<div class="card-action center">
+					<form
+						action="{% url 'assoc_trip' trip.id gear.id %}"
+						method="POST">
+						{% csrf_token %}
+						<button
+							type="submit"
+							class="btn">
+							Not on this trip!
+						</button>
+					</form>
+				</div>
 			</div>
 		</div>
 		{% endfor %} {% else %}
 		<h5>No gear added to this trip yet</h5>
 		{% endif %}
 	</div>
-	<!-- Available gear will come after this line -->
 	<div class="col s6">
 		<h3>Available Gear</h3>
 		{% if gear.count %} {% for gear in gear.all %}
@@ -48,13 +59,13 @@
 			</div>
 			<div class="card-action">
 				<form
-					action=""
-					method="post">
+					action="{% url 'assoc_gear' trip.id gear.id %}"
+					method="POST">
 					{% csrf_token %}
 					<button
 						type="submit"
 						class="btn">
-						Add
+						Bring it along!
 					</button>
 				</form>
 			</div>
