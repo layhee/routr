@@ -1,4 +1,4 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} {% block content %} {% load static %}
 <h1>About Routr</h1>
 <h3>Your Adventure Planner</h3>
 <hr />
@@ -9,5 +9,13 @@
 <a href="{% url 'trip_create' %}"
 	><button class="btn">Start Planning Your Trip</button></a
 >
-<a href="{% url 'gear_create' %}"><button class="btn">Add your Gear</button></a>
+<a
+	class="right"
+	href="{% url 'gear_create' %}"
+	><button class="btn">Add your Gear</button></a
+><br /><br />
+<img
+	src="{% static 'bikepack.jpg' %}"
+	alt="My image"
+	width="100%" />
 {% endblock %}

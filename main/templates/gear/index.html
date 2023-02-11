@@ -1,7 +1,7 @@
 {% extends 'base.html' %} {% block content %}
 
 <h1>Your Gear</h1>
-
+<a href="{% url 'gear_create' %}"><button class="btn">Add Gear</button></a>
 {% for gear in gears %}
 <div class="card">
 	<a href="{% url 'gear_detail' gear.id %}">

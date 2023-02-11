@@ -24,3 +24,7 @@ body {
     text-align: right;
     background-color: dodgerblue;
   }
+  .container{
+    background-image: url(/main/static/bikepack.jpg);
+    background-size: cover;
+  }
