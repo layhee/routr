@@ -3,6 +3,8 @@ from django.views.generic import ListView, CreateView
 from .models import Trip, Gear
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .forms import GearForm
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import login
 
 
 def home(request):
@@ -54,6 +56,10 @@ class TripCreate(CreateView):
     fields = ['name', 'mode', 'distance', 'nights', 'start', 'end']
     success_url = '/trips/'
 
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+
 
 class TripUpdate(UpdateView):
     model = Trip
@@ -79,3 +85,20 @@ class GearUpdate(UpdateView):
 class GearDelete(DeleteView):
     model = Gear
     success_url = '/gear/'
+
+
+def signup(request):
+    err_message = ''
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect('index')
+        else:
+            err_message = "That didn't work..."
+    form = UserCreationForm()
+    return render(request, 'registration/signup.html', {
+        'form': form,
+        'error': err_message
+    })

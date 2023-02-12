@@ -6,14 +6,11 @@
 	Routr is here to help you plan upcoming outdoor adventures by giving you a
 	place to organize the details of your trip and make a list of gear to bring.
 </h4>
-<a href="{% url 'trip_create' %}"
-	><button class="btn">Start Planning Your Trip</button></a
->
-<a
-	class="right"
-	href="{% url 'gear_create' %}"
-	><button class="btn">Add your Gear</button></a
-><br /><br />
+<div class="center">
+	<a href="{% url 'login' %}"><button class="btn">Login</button></a>
+	<a href="{% url 'signup' %}"> <button class="btn">Sign Up</button></a>
+</div>
+<hr />
 <img
 	src="{% static 'bikepack.jpg' %}"
 	alt="My image"
