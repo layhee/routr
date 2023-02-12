@@ -20,6 +20,7 @@
 	</head>
 	<body>
 		<header class="navbar-fixed">
+			{% comment %}
 			<nav>
 				<div class="nav-wrapper">
 					<ul>
@@ -36,17 +37,18 @@
 					</ul>
 				</div>
 			</nav>
+			{% endcomment %}
 		</header>
-		<main class="container home">
+		<main class="container home center">
 			{% block content %}
-			<img
-				src="{% static 'bikepack.jpg' %}"
-				alt="My image"
-				width="100%" />
+			<h1>Welcome</h1>
+			<a href="/about"><button class="btn">Take A Trip</button></a>
 			{% endblock %}
 		</main>
+		{% comment %}
 		<footer class="page-footer">
 			<div class="right">© 2023 Routr - Adventure Planner</div>
 		</footer>
+		{% endcomment %}
 	</body>
 </html>

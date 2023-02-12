@@ -12,23 +12,30 @@ body {
 h1{
   letter-spacing: -.1rem;
 }
-  main {
-    flex: 1 0 auto;
-  }
-  .btn{
-    background-color: rgb(235, 142, 22);
-  }
-  .btn:hover{
-    background-color: rgb(181, 109, 16);
-  }
-  .nav-wrapper{
-    background-color: dodgerblue;
-  }
-  .page-footer {
-    padding-top: 0;
-    text-align: right;
-    background-color: dodgerblue;
-  }
-  .card{
-    border: 12px solid rgb(10, 10, 10)
+main {
+  flex: 1 0 auto;
+}
+.btn{
+  background-color: rgb(235, 142, 22);
+}
+.btn:hover{
+  background-color: rgb(181, 109, 16);
+}
+.nav-wrapper{
+  background-color: dodgerblue;
+}
+.page-footer {
+  padding-top: 0;
+  text-align: right;
+  background-color: dodgerblue;
+}
+.card{
+  border: 12px solid rgb(10, 10, 10)
+}
+.card:hover{
+  border: 12px solid rgb(10, 10, 10);
+  box-shadow: 12px 12px 0 rgb(10, 10, 10);
+}
+.brand-logo{
+    margin-left: 32px;
   }

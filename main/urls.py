@@ -19,4 +19,5 @@ urlpatterns = [
          views.assoc_gear, name='assoc_gear'),
     path('trips/<int:trip_id>/assoc_trip/<int:gear_id>/',
          views.assoc_trip, name='assoc_trip'),
+    path('trips/<int:trip_id>/add_photo/', views.add_photo, name='add_photo')
 ]

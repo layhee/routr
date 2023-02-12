@@ -34,3 +34,11 @@ class Trip(models.Model):
 
     def get_absolute_url(self):
         return reverse("detail", kwargs={"trip_id": self.id})
+
+
+class Photo(models.Model):
+    url = models.CharField(max_length=200)
+    trip = models.ForeignKey(Trip, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'Photo for trip: {self.trip.name} @{self.url}'
