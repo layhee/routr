@@ -4,7 +4,7 @@
 
 <div class="row">
 	<div class="col s12">
-		<div class="card">
+		<div class="card index-card">
 			<div class="card-content">
 				<span class="card-title trip-title">{{ trip.name }}</span>
 				<p><span class="thick">Mode of travel</span>: {{ trip.mode }}</p>
@@ -25,8 +25,7 @@
 		<div class="row s12">
 		{% for photo in trip.photo_set.all %}
 			<img
-				class="col s4"
-				class="detail-img"
+				class="col s4 detail-img"
 				src="{{ photo.url}}"
 				alt="{{ trip.name }}" />
 			{% empty %}
@@ -59,28 +58,29 @@
 </div>
 <hr />
 <div class="row">
-	<div class="col s12 m6">
-		<h3>{{ trip.name }} Gear List</h3>
+	<div class="col m6">
+		<h3>{{ trip.name }}'s Gear List</h3>
 		{% if trip.gear.count %} {% for gear in trip.gear.all %}
-		<div class="card">
-			<div class="card-content">
+		<div class="card p0">
+			<div class="card-content center">
 				<span class="card-title">
 					A {{ gear.size }} {{ gear.name.lower }} {{gear.use}}
 				</span>
-				<div class="card-action center">
+			</div>
+			<div class="card-action center">
 					<form
 					class="borderless-form"	
 					action="{% url 'assoc_trip' trip.id gear.id %}"
 						method="POST">
 						{% csrf_token %}
 						<button
+						class="full-width btn"
 							type="submit"
 							class="btn">
 							Not on this trip!
 						</button>
-					</form>
+					</form>	
 				</div>
-			</div>
 		</div>
 		{% endfor %} {% else %}
 		<h5>No gear added to this trip yet</h5>
@@ -89,7 +89,7 @@
 	<div class="col s6">
 		<h3>Available Gear</h3>
 		{% if gear.count %} {% for gear in gear.all %}
-		<div class="card">
+		<div class="card p0">
 			<div class="card-content center">
 				<span class="card-title"> A {{ gear.brand }} {{gear.name}} </span>
 			</div>
@@ -100,6 +100,7 @@
 					method="POST">
 					{% csrf_token %}
 					<button
+						class="full-width btn"
 						type="submit"
 						class="btn center">
 						Bring it along!

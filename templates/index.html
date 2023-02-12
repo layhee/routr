@@ -4,6 +4,13 @@
 		background-image: url(/static/bikepack.jpg);
 		background-size: cover;
 		background-position: center;
+		display: flex;
+	}
+	main {
+		display: flex !important;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
 	}
 </style>
 {% endblock %}
@@ -27,32 +34,24 @@
 			href="{% static 'css/style.css' %}" />
 	</head>
 	<body>
-		<header class="navbar-fixed">
-			{% comment %}
-			<nav>
-				<div class="nav-wrapper">
-					<ul>
-						<li>
-							<a
-								href="/"
-								class="left brand-logo"
-								>Routr - Adventure Planner</a
-							>
-						</li>
-					</ul>
-					<ul class="right">
-						<li><a href="/about">Take A Trip</a></li>
-					</ul>
-				</div>
-			</nav>
-			{% endcomment %}
-		</header>
 		<main class="container home center">
 			{% block content %}
 			<h1 class="thick welcome">Welcome</h1>
-			<h2 class="welcome-sub-title">Routr helps you plan adventures.</h2>
-			<a href="/about"><button class="btn">Let's Take A Trip</button></a>
+			<h2 class="text-shadow routr-yellow">Routr helps you plan adventures.</h2>
+			<h4 class="text-shadow">
+				Routr is here to help you plan upcoming outdoor adventures by giving you
+				a place to organize the details of your trip and make a list of gear to
+				bring. Get started by signing up and adding a trip!
+			</h4>
+			<br /><br />
+			<a href="/about"
+				><button class="thick btn welcome-btn">Let's Take A Trip</button></a
+			>
+
 			{% endblock %}
 		</main>
 	</body>
+	<footer>
+		<p class="footer"></p>
+	</footer>
 </html>

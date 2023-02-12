@@ -8,13 +8,22 @@
 		<div class="card">
 			<a href="{% url 'detail' trip.id %}">
 				<div class="card-content">
-					<img src="{{photo.url}}" />
 					<span class="card-title trip-title">{{ trip.name }}</span>
-					<p>Mode of travel: {{ trip.mode }}</p>
-					<p>Distance: {{ trip.distance }}</p>
-					<p>Nights: {{ trip.nights }}</p>
-					<p>Start: {{ trip.start }}</p>
-					<p>End: {{ trip.end }}</p>
+					<p class="text-black">
+						<span class="thick">Mode of travel: </span>{{ trip.mode }}
+					</p>
+					<p class="text-black">
+						<span class="thick">Distance: </span>{{ trip.distance }}
+					</p>
+					<p class="text-black">
+						<span class="thick">Nights:</span> {{ trip.nights }}
+					</p>
+					<p class="text-black">
+						<span class="thick">Start:</span> {{ trip.start }}
+					</p>
+					<p class="text-black">
+						<span class="thick">End:</span> {{ trip.end }}
+					</p>
 				</div>
 			</a>
 		</div>

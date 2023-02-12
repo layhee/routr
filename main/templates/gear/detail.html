@@ -1,14 +1,14 @@
 {% extends 'base.html' %} {% block content %}
 
 <a href="{% url 'gear' %}"><h5>< Back to All Gear</h5></a>
-<div class="card">
+<div class="card index-card">
 	<div class="card-content">
-		<span class="card-title">{{ gear.name }}</span>
-		<p>What's it for?: {{ gear.use }}</p>
-		<p>Size: {{ gear.size }}</p>
-		<p>Brand: {{ gear.brand }}</p>
-		<p>Model: {{ gear.model }}</p>
-		<p>Do you need it?: {{ gear.necessary }}</p>
+		<span class="card-title trip-title">{{ gear.name }}</span>
+		<p><span class="thick">What's it for?:</span> {{ gear.use }}</p>
+		<p><span class="thick">Size:</span> {{ gear.size }}</p>
+		<p><span class="thick">Brand: </span>{{ gear.brand }}</p>
+		<p><span class="thick">Model: </span>{{ gear.model }}</p>
+		<p><span class="thick">Do you need it?:</span> {{ gear.necessary }}</p>
 	</div>
 	<div class="card-action">
 		<a href="{% url 'gear_update' gear.id %}">Edit</a>
