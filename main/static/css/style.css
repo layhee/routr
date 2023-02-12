@@ -5,15 +5,41 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-    background-image: url(/static/bikepack.jpg);
-    background-size: cover;
-    background-position: center;
+    color:rgb(81, 53, 24);
   }
+:where(h1,h2,h3, h4){
+  color:rgb(247, 247, 247);
+}
 h1{
   letter-spacing: -.1rem;
 }
 main {
   flex: 1 0 auto;
+}
+nav .brand-logo{
+  font-size: 3.2rem;
+  font-weight: 700  ;
+}
+a{
+  color:rgb(235, 142, 22);
+}
+img{
+  margin: 23px 0;
+}
+.photo{
+  background-color: rgb(235, 142, 22);
+  border-radius: 6px 6px;
+}
+.borderless-form{
+  border: none;
+  border-radius: 6px 6px;
+  padding: 0 0;
+  margin: 0 0;
+}
+.welcome{
+  font-size: 6rem;
+  color: rgb(247, 247, 247);
+  text-shadow: 2px 2px 4px rgb(10, 10, 10);
 }
 .btn{
   background-color: rgb(235, 142, 22);
@@ -22,15 +48,19 @@ main {
   background-color: rgb(181, 109, 16);
 }
 .nav-wrapper{
-  background-color: dodgerblue;
+  background-color: rgb(144, 83, 8);
 }
 .page-footer {
   padding-top: 0;
   text-align: right;
-  background-color: dodgerblue;
+  background-color: rgb(41, 35, 27);
 }
 .card{
   border: 12px solid rgb(10, 10, 10)
+}
+.card-panel{
+  background-color: rgb(235, 142, 22);
+  box-shadow: none;
 }
 .card:hover{
   border: 12px solid rgb(10, 10, 10);
@@ -39,3 +69,33 @@ main {
 .brand-logo{
     margin-left: 32px;
   }
+.detail-img{
+  width: 100%;
+}
+.card .card-title.trip-title{
+  font-size: 2.6rem;
+  font-weight: 700;
+}
+.thick{
+  font-weight: 700;
+}
+.sub-title{
+  color:rgb(235, 142, 22);
+  font-size: 2.6rem;
+}
+.welcome-sub-title{
+  color: rgb(247, 247, 247);
+  font-size: 2.2rem;
+  text-shadow: 2px 2px 3px rgba(10, 10, 10, 1);
+}
+form{
+  background-color: rgb(247, 247, 247);
+  border: 12px solid rgb(10, 10, 10);
+  padding: 24px 24px;
+}
+.helptext{
+  display: none;
+}
+.card .card-action {
+  padding: 0 0;
+}

@@ -1,4 +1,12 @@
-{% load static %}
+{% load static %} {% block additional_styles %}
+<style>
+	body {
+		background-image: url(/static/bikepack.jpg);
+		background-size: cover;
+		background-position: center;
+	}
+</style>
+{% endblock %}
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -41,14 +49,10 @@
 		</header>
 		<main class="container home center">
 			{% block content %}
-			<h1>Welcome</h1>
-			<a href="/about"><button class="btn">Take A Trip</button></a>
+			<h1 class="thick welcome">Welcome</h1>
+			<h2 class="welcome-sub-title">Routr helps you plan adventures.</h2>
+			<a href="/about"><button class="btn">Let's Take A Trip</button></a>
 			{% endblock %}
 		</main>
-		{% comment %}
-		<footer class="page-footer">
-			<div class="right">© 2023 Routr - Adventure Planner</div>
-		</footer>
-		{% endcomment %}
 	</body>
 </html>

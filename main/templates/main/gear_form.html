@@ -5,17 +5,19 @@
 {% else %}
 <h1>Add Gear</h1>
 {% endif %}
-<form
-	action=""
-	method="post">
-	<!-- Django requires the following for security purposes -->
-	{% csrf_token %}
-	<table>
-		{{ form.as_table }}
-	</table>
-	<input
-		type="submit"
-		value="Submit!"
-		class="btn" />
-</form>
+<div class="card">
+	<form
+		class="borderless-form"
+		action=""
+		method="post">
+		{% csrf_token %}
+		<table>
+			{{ form.as_table }}
+		</table>
+		<input
+			type="submit"
+			value="Submit!"
+			class="btn" />
+	</form>
+</div>
 {% endblock %}

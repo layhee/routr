@@ -7,11 +7,21 @@
 {% endif %}
 <form
 	action="{% url 'signup' %}"
-	method="POST">
+	method="POST"
+	class="signup-form">
 	{% csrf_token %} {{ form.as_p }}
 	<input
 		type="submit"
-		class="btn"
+		class="btn tooltipped"
+		data-position="right"
+		data-tooltip="I am a tooltip"
 		value="Sign Up" />
 </form>
+<script>
+	$(document).ready(function () {
+		$('.tooltipped').hover(function () {
+			$(this).tooltipped();
+		});
+	});
+</script>
 {% endblock %}

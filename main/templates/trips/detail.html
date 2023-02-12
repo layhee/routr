@@ -1,16 +1,17 @@
 {% extends 'base.html' %} {% block content %}
 
-<a href="{% url 'index' %}"><h1>Your Trips</h1></a>
+<a href="{% url 'index' %}"><h5>< Back to All Trips</h5></a>
+
 <div class="row">
-	<div class="col s6">
+	<div class="col s12">
 		<div class="card">
 			<div class="card-content">
-				<span class="card-title">{{ trip.name }}</span>
-				<p>Mode of travel: {{ trip.mode }}</p>
-				<p>Distance: {{ trip.distance }}</p>
-				<p>Nights: {{ trip.nights }}</p>
-				<p>Start: {{ trip.start }}</p>
-				<p>End: {{ trip.end }}</p>
+				<span class="card-title trip-title">{{ trip.name }}</span>
+				<p><span class="thick">Mode of travel</span>: {{ trip.mode }}</p>
+				<p><span class="thick">Distance</span>: {{ trip.distance }}</p>
+				<p><span class="thick">Nights</span>: {{ trip.nights }}</p>
+				<p><span class="thick">Start</span>: {{ trip.start }}</p>
+				<p><span class="thick">End</span>: {{ trip.end }}</p>
 			</div>
 			<div class="card-action">
 				<a href="{% url 'trip_update' trip.id %}">Edit</a>
@@ -18,31 +19,42 @@
 			</div>
 		</div>
 	</div>
-	{% for photo in trip.photo_set.all %}
-	<img
-		src="{{ photo.url}}"
-		alt="{{ trip.name }}" />
-	{% empty %}
-	<div class="col s6">
-		<div class="card-panel center">Just Imagine It...</div>
-	</div>
-	{% endfor%}
-	<div class="col s6">
-		<div class="card-panel photo">
-			<form
-				action="{% url 'add_photo' trip.id%}"
-				method="POST"
-				enctype="multipart/form-data">
-				{% csrf_token %}
-				<input
-					type="file"
-					name="photo-file" />
-				<input
-					type="submit"
-					value="Add Photo"
-					class="btn" />
-			</form>
+</div>
+<div class="row photo">
+	<div class="col s12">
+		<div class="row s12">
+		{% for photo in trip.photo_set.all %}
+			<img
+				class="col s4"
+				class="detail-img"
+				src="{{ photo.url}}"
+				alt="{{ trip.name }}" />
+			{% empty %}
+			<div class="card-panel center col s12"><h4>Just Imagine It...</h4>
+			</div>
+			{% endfor%}
 		</div>
+
+	</div>
+</div>
+</div>
+<div class="">
+	<div class="card-panel photo">
+		<h5>Add some photos!</h5>
+		<form
+			class="borderless-form"
+			action="{% url 'add_photo' trip.id%}"
+			method="POST"
+			enctype="multipart/form-data">
+			{% csrf_token %}
+			<input
+				type="file"
+				name="photo-file" />
+			<input
+				type="submit"
+				value="Add Photo"
+				class="btn right scale-transition" />
+		</form>
 	</div>
 </div>
 <hr />
@@ -57,7 +69,8 @@
 				</span>
 				<div class="card-action center">
 					<form
-						action="{% url 'assoc_trip' trip.id gear.id %}"
+					class="borderless-form"	
+					action="{% url 'assoc_trip' trip.id gear.id %}"
 						method="POST">
 						{% csrf_token %}
 						<button
@@ -77,17 +90,18 @@
 		<h3>Available Gear</h3>
 		{% if gear.count %} {% for gear in gear.all %}
 		<div class="card">
-			<div class="card-content">
+			<div class="card-content center">
 				<span class="card-title"> A {{ gear.brand }} {{gear.name}} </span>
 			</div>
 			<div class="card-action">
 				<form
-					action="{% url 'assoc_gear' trip.id gear.id %}"
+				class="borderless-form"	
+				action="{% url 'assoc_gear' trip.id gear.id %}"
 					method="POST">
 					{% csrf_token %}
 					<button
 						type="submit"
-						class="btn">
+						class="btn center">
 						Bring it along!
 					</button>
 				</form>
@@ -97,26 +111,5 @@
 		<h5>That's your whole kit!</h5>
 		{% endif %}
 	</div>
-	{% comment %}
-	<div class="col s6">
-		<table class="striped">
-			<thead>
-				<tr>
-					<th>Gear</th>
-				</tr>
-			</thead>
-			<tbody>
-				{% for gear in trip.gear_set.all %}
-				<tr>
-					<td>{{gear.brand}}</td>
-					<td>{{gear.size}}</td>
-					<td>{{gear.name}}</td>
-					<td>{{gear.use}}</td>
-				</tr>
-				{% endfor %}
-			</tbody>
-		</table>
-	</div>
-	{% endcomment %}
 </div>
 {% endblock %}
