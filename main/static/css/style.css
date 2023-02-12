@@ -5,6 +5,9 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+    background-image: url(/static/bikepack.jpg);
+    background-size: cover;
+    background-position: center;
   }
 h1{
   letter-spacing: -.1rem;
@@ -26,7 +29,6 @@ h1{
     text-align: right;
     background-color: dodgerblue;
   }
-  .container{
-    background-image: url(/main/static/bikepack.jpg);
-    background-size: cover;
+  .card{
+    border: 12px solid rgb(10, 10, 10)
   }

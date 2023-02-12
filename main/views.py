@@ -5,6 +5,8 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .forms import GearForm
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 def home(request):
@@ -15,22 +17,26 @@ def about(request):
     return render(request, 'about.html')
 
 
+@login_required
 def gear(request):
     gears = Gear.objects.all()
     return render(request, 'gear/index.html', {'gears': gears})
 
 
+@login_required
 def gear_detail(request, gear_id):
     gear = Gear.objects.get(id=gear_id)
     gear_form = GearForm()
     return render(request, 'gear/detail.html', {'gear': gear, 'gear_form': gear_form})
 
 
+@login_required
 def trip_index(request):
-    trips = Trip.objects.all()
+    trips = Trip.objects.filter(user=request.user)
     return render(request, 'trips/index.html', {'trips': trips})
 
 
+@login_required
 def trip_detail(request, trip_id):
     trip = Trip.objects.get(id=trip_id)
     gear_trip_doesnt_have = Gear.objects.exclude(
@@ -51,7 +57,7 @@ def assoc_trip(request, trip_id, gear_id):
     return redirect('detail', trip_id=trip_id)
 
 
-class TripCreate(CreateView):
+class TripCreate(LoginRequiredMixin, CreateView):
     model = Trip
     fields = ['name', 'mode', 'distance', 'nights', 'start', 'end']
     success_url = '/trips/'
@@ -61,28 +67,28 @@ class TripCreate(CreateView):
         return super().form_valid(form)
 
 
-class TripUpdate(UpdateView):
+class TripUpdate(LoginRequiredMixin, UpdateView):
     model = Trip
     fields = ['name', 'mode', 'distance', 'nights', 'start', 'end']
 
 
-class TripDelete(DeleteView):
+class TripDelete(LoginRequiredMixin, DeleteView):
     model = Trip
     success_url = '/trips/'
 
 
-class GearCreate(CreateView):
+class GearCreate(LoginRequiredMixin, CreateView):
     model = Gear
     fields = ['name', 'use', 'size', 'brand', 'model', 'necessary']
     success_url = '/gear/'
 
 
-class GearUpdate(UpdateView):
+class GearUpdate(LoginRequiredMixin, UpdateView):
     model = Gear
     fields = ['name', 'use', 'size', 'brand', 'model', 'necessary']
 
 
-class GearDelete(DeleteView):
+class GearDelete(LoginRequiredMixin, DeleteView):
     model = Gear
     success_url = '/gear/'
 
