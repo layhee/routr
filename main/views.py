@@ -70,7 +70,7 @@ def add_photo(request, trip_id):
 
 
 def assoc_gear(request, trip_id, gear_id):
-    Trip.objects.get(id=trip_id).gear.add(gear_id)
+    Trip.objects.filter(user=request.user).get(id=trip_id).gear.add(gear_id)
     return redirect('detail', trip_id=trip_id)
 
 
