@@ -54,7 +54,7 @@ em{
 .welcome{
   font-size: 6rem;
   color: rgb(247, 247, 247);
-  text-shadow: 2px 2px 4px rgb(10, 10, 10);
+  text-shadow: 2px 2px 4px rgb(23, 21, 20);
 }
 .welcome-btn{
   padding: 12px 32px;
@@ -78,7 +78,7 @@ em{
   background-color: rgb(41, 35, 27);
 }
 .card{
-  border: 12px solid rgb(10, 10, 10);
+  border: 12px solid rgb(23, 21, 20);
 }
 .index-card{
   padding: 12px 16px;
@@ -88,7 +88,7 @@ em{
   box-shadow: none;
 }
 .card:hover{
-  border: 12px solid rgb(10, 10, 10);
+  border: 12px solid rgb(23, 21, 20);
   box-shadow: 12px 12px 0 rgb(235, 142, 22);
 }
 .brand-logo{
@@ -115,10 +115,10 @@ em{
   font-size: 2.2rem;
 }
 .text-shadow{
-  text-shadow: 2px 2px 3px rgba(10, 10, 10, 1);
+  text-shadow: 2px 2px 3px rgba(23, 21, 20, 1);
 }
 .box-shadow{
-  box-shadow: 2px 2px 3px rgba(10, 10, 10, 1);
+  box-shadow: 2px 2px 3px rgba(23, 21, 20, 1);
 }
 .helptext{
   display: none;
@@ -140,7 +140,7 @@ em{
   width: 100%
 }
 .text-black{
-  color:rgb(10, 10, 10)
+  color:rgb(23, 21, 20)
 }
 input[type=file]{
   font-size: 26px;
