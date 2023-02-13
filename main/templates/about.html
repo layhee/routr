@@ -21,7 +21,16 @@
 	<a href="{% url 'signup' %}"> <button class="btn mx2">Sign Up</button></a>
 </div>
 <h4>
-	Routr is here to help you plan upcoming outdoor adventures by giving you a
-	place to organize the details of your trip and make a list of gear to bring.
+	<span class="routr-yellow">Getting Started</span> - Begin
+	<em>(or keep planning)</em> by either logging in if you're continuing your
+	trip plans, or <a href="{% url 'signup' %}">signing up</a> if you're new here.
+</h4>
+<h4>
+	After you've registered, you can
+	<a href="{% url 'trip_create' %}">create a trip</a>,
+	<a href="{% url 'gear_create' %}">add your gear</a>, or just know you now have
+	a place to get organized for the next trip -
+	<span class="routr-yellow">big</span> or
+	<span class="routr-yellow">small</span>.
 </h4>
 {% endblock %}

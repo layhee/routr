@@ -77,12 +77,8 @@ WSGI_APPLICATION = 'routr.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'layhee/routr',
-        'USER': 'layhee',
-        'PASSWORD': 'v2_3z4aL_ZVpZ3LdKuqNBVCNgi3sn23T',
-        'HOST': 'db.bit.io',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 

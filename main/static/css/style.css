@@ -7,7 +7,7 @@ body {
     flex-direction: column;
     color:rgb(81, 53, 24);
   }
-:where(h1,h2,h3, h4){
+:where(h1,h2,h3, h4,h5){
   color:rgb(247, 247, 247);
 }
 h1{
@@ -22,15 +22,24 @@ nav .brand-logo{
 }
 a{
   color:rgb(235, 142, 22);
+  transition: ease 260ms;
+}
+a:hover{
+  color: rgb(30, 144, 255);
+  transition: ease 260ms;
 }
 form{
   background-color: rgb(247, 247, 247);
-  border: 12px solid rgb(10, 10, 10);
+  border: 12px solid rgb(23, 21, 20);
   padding: 24px 24px;
 }
 footer{
   bottom: 0;
   position: fixed;
+}
+em{
+  font-weight: 400;
+  font-size: 2.2rem;
 }
 .photo{
   background-color: rgb(235, 142, 22);
@@ -50,6 +59,7 @@ footer{
 .welcome-btn{
   padding: 12px 32px;
   height: 60px;
+  font-family: 'basic sans';
   font-size: 1.5rem;
   font-style: italic;
 }
@@ -140,8 +150,8 @@ input[type=file]{
 }
 .rounded{
   background-image: url('/static/bikepacking-white-rim-20.jpg');
-  height: 460px;
-  width: 460px;
+  height: 380px;
+  width: 380px;
   border-radius: 50%;
   background-position: center;
   background-size: cover;

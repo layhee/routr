@@ -64,7 +64,8 @@
 		<div class="card p0">
 			<div class="card-content center">
 				<span class="card-title">
-					A {{ gear.size }} {{ gear.name.lower }} {{gear.use}}
+					<span class="thick">{{gear.name}}</span><br>
+					{{ gear.size }} {{gear.model}} {{ gear.name.lower }} made by {{gear.brand}} for {{gear.use}}
 				</span>
 			</div>
 			<div class="card-action center">
@@ -91,7 +92,7 @@
 		{% if gear.count %} {% for gear in gear.all %}
 		<div class="card p0">
 			<div class="card-content center">
-				<span class="card-title"> A {{ gear.brand }} {{gear.name}} </span>
+				<span class="card-title"><span class="thick">{{ gear.brand }}</span> {{gear.size}} {{gear.name}} </span>
 			</div>
 			<div class="card-action">
 				<form
@@ -111,6 +112,7 @@
 		{% endfor %} {% else %}
 		<h5>That's your whole kit!</h5>
 		{% endif %}
+		<a href="{% url 'gear_create' %}"><button class="btn">Add More Gear</button></a>
 	</div>
 </div>
 {% endblock %}
