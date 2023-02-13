@@ -24,7 +24,7 @@ def about(request):
 
 @login_required
 def gear(request):
-    gears = Gear.objects.all()
+    gears = Gear.objects.filter(user=request.user)
     return render(request, 'gear/index.html', {'gears': gears})
 
 
