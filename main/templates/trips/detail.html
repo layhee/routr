@@ -29,7 +29,7 @@
 				src="{{ photo.url}}"
 				alt="{{ trip.name }}" />
 			{% empty %}
-			<div class="card-panel center col s12"><h4>Just Imagine It...</h4>
+			<div class="card-panel center col s12"><h4>Just Imagine It...</h4><h5>or add some photos below!</h5>
 			</div>
 			{% endfor%}
 		</div>
@@ -39,20 +39,20 @@
 </div>
 <div class="">
 	<div class="card-panel photo">
-		<h5>Add some photos!</h5>
 		<form
-			class="borderless-form"
+			class="borderless-form upload"
 			action="{% url 'add_photo' trip.id%}"
 			method="POST"
 			enctype="multipart/form-data">
 			{% csrf_token %}
 			<input
+				class="file-btn"
 				type="file"
 				name="photo-file" />
 			<input
 				type="submit"
 				value="Add Photo"
-				class="btn right scale-transition" />
+				class="btn right blue" />
 		</form>
 	</div>
 </div>
