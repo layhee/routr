@@ -60,7 +60,7 @@ footer{
   background-color: rgb(181, 109, 16);
 }
 .nav-wrapper{
-  background-color: rgb(144, 83, 8);
+  background-color: rgb(235, 142, 22);
 }
 .page-footer {
   padding-top: 0;
@@ -137,4 +137,12 @@ input[type=file]{
 }
 .upload{
   height: 36px;
+}
+.rounded{
+  background-image: url('/static/bikepacking-white-rim-20.jpg');
+  height: 460px;
+  width: 460px;
+  border-radius: 50%;
+  background-position: center;
+  background-size: cover;
 }
