@@ -101,8 +101,12 @@ class TripDelete(LoginRequiredMixin, DeleteView):
 
 class GearCreate(LoginRequiredMixin, CreateView):
     model = Gear
-    fields = ['name', 'use', 'size', 'brand', 'model', 'necessary']
+    fields = ['name', 'use', 'size', 'brand', 'model', 'necessary', ]
     success_url = '/gear/'
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
 
 
 class GearUpdate(LoginRequiredMixin, UpdateView):

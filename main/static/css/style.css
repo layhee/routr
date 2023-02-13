@@ -29,13 +29,14 @@ a:hover{
   transition: ease 260ms;
 }
 form{
-  background-color: rgb(247, 247, 247);
+  background-color: rgb(255, 255, 255);
   border: 12px solid rgb(23, 21, 20);
   padding: 24px 24px;
 }
 footer{
   bottom: 0;
   position: fixed;
+  width: 100vw;
 }
 em{
   font-weight: 400;
@@ -73,9 +74,9 @@ em{
   background-color: rgb(235, 142, 22);
 }
 .page-footer {
-  padding-top: 0;
+  padding: 12px 16px;
   text-align: right;
-  background-color: rgb(41, 35, 27);
+  background-color: rgb(235, 142, 22);
 }
 .card{
   border: 12px solid rgb(23, 21, 20);
@@ -144,6 +145,11 @@ em{
 }
 input[type=file]{
   font-size: 26px;
+}
+input:not([type]):focus:not([readonly]),input[type=text]:not(.browser-default):focus:not([readonly]),input[type=password]:not(.browser-default):focus:not([readonly]),input[type=email]:not(.browser-default):focus:not([readonly]),input[type=url]:not(.browser-default):focus:not([readonly]),input[type=time]:not(.browser-default):focus:not([readonly]),input[type=date]:not(.browser-default):focus:not([readonly]),input[type=datetime]:not(.browser-default):focus:not([readonly]),input[type=datetime-local]:not(.browser-default):focus:not([readonly]),input[type=tel]:not(.browser-default):focus:not([readonly]),input[type=number]:not(.browser-default):focus:not([readonly]),input[type=search]:not(.browser-default):focus:not([readonly]),textarea.materialize-textarea:focus:not([readonly]) {
+  border-bottom: 1px solid rgb(235, 142, 22);
+  -webkit-box-shadow: 0 1px 0 0 rgb(235, 142, 22);
+  box-shadow: 0 1px 0 0 rgb(235, 142, 22);
 }
 .upload{
   height: 36px;

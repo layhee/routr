@@ -13,7 +13,7 @@
 				<p><span class="thick">Start</span>: {{ trip.start }}</p>
 				<p><span class="thick">End</span>: {{ trip.end }}</p>
 			</div>
-			<div class="card-action">
+			<div class="card-action center thick">
 				<a href="{% url 'trip_update' trip.id %}">Edit</a>
 				<a href="{% url 'trip_delete' trip.id %}">Delete</a>
 			</div>
@@ -112,7 +112,7 @@
 		{% endfor %} {% else %}
 		<h5>That's your whole kit!</h5>
 		{% endif %}
-		<a href="{% url 'gear_create' %}"><button class="btn">Add More Gear</button></a>
+		<a href="{% url 'gear_create' %}"><button class="btn">Add Gear</button></a>
 	</div>
 </div>
 {% endblock %}
