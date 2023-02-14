@@ -157,8 +157,8 @@ input:not([type]):focus:not([readonly]),input[type=text]:not(.browser-default):f
 }
 .rounded{
   background-image: url('/static/bikepacking-white-rim-20.jpg');
-  height: 380px;
-  width: 380px;
+  height: 340px;
+  width: 340px;
   border-radius: 50%;
   background-position: center;
   background-size: cover;
