@@ -1,3 +1,5 @@
+import os
+from dotenv import load_dotenv
 from django.shortcuts import render, redirect
 from django.views.generic import ListView, CreateView
 from .models import Trip, Gear, Photo
@@ -12,6 +14,8 @@ import uuid
 
 S3_BASE_URL = 'http://s3.us-east-2.amazonaws.com/'
 BUCKET = 'routr-bucket'
+
+load_dotenv()
 
 
 def home(request):
@@ -55,7 +59,8 @@ def trip_detail(request, trip_id):
 def add_photo(request, trip_id):
     photo_file = request.FILES.get('photo-file', None)
     if photo_file:
-        s3 = boto3.client('s3')
+        s3 = boto3.client('s3', aws_access_key_id=os.getenv(
+            'AWS_ACCES_KEY_ID'), aws_secret_access_key=os.getenv('AWS_SECRET_ACCESS_KEY'))
         key = uuid.uuid4().hex[:6] + \
             photo_file.name[photo_file.name.rfind('.'):]
         try:
