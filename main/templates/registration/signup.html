@@ -2,19 +2,17 @@
 
 <h1>Join the Adventure</h1>
 
-{% if error %}
-<h4 class="red-text">{{error}}</h4>
+{% if error_message %}
+<h4 class="red-text">{{error_message}}</h4>
 {% endif %}
 <form
-	action="{% url 'signup' %}"
 	method="POST"
+	action="{% url 'signup' %}"
 	class="signup-form">
 	{% csrf_token %} {{ form.as_p }}
 	<input
 		type="submit"
 		class="btn"
-		data-position="right"
-		data-tooltip="I am a tooltip"
 		value="Sign Up" />
 </form>
 {% endblock %}

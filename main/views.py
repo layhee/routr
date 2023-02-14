@@ -120,7 +120,7 @@ class GearDelete(LoginRequiredMixin, DeleteView):
 
 
 def signup(request):
-    err_message = ''
+    error_message = ''
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
@@ -132,5 +132,5 @@ def signup(request):
     form = UserCreationForm()
     return render(request, 'registration/signup.html', {
         'form': form,
-        'error': err_message
+        'error': error_message
     })
